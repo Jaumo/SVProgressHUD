@@ -366,6 +366,7 @@ typedef void (^SVProgressHUDDismissCompletion)(void);
 
 // shows a view + status.
 + (void)showCustomView:(nonnull UIView*)view status:(nullable NSString*)status;
++ (void)showCustomView:(nonnull UIView *)view duration:(NSTimeInterval) displayInterval;
 
 /// Sets the offset from the center for the HUD.
 /// @param offset The UIOffset value indicating how much the HUD should be offset from its center position.
