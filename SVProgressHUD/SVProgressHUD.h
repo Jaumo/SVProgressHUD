@@ -141,6 +141,12 @@ typedef void (^SVProgressHUDDismissCompletion)(void);
 /// @discussion Default: xmark from SF Symbols (iOS 13+) or the bundled error image provided by Freepik.
 @property (strong, nonatomic, nonnull) UIImage *errorImage UI_APPEARANCE_SELECTOR;
 
+@property (strong, nonatomic, nullable) UIView *customIndefinitedAnimationView;                        // default is nil
+@property (strong, nonatomic, nullable) UIView *customProgressAnimationView;                           // default is nil
+@property (strong, nonatomic, nullable) UIView *customInfoView;                                        // default is nil
+@property (strong, nonatomic, nullable) UIView *customSuccessView;                                     // default is nil
+@property (strong, nonatomic, nullable) UIView *customErrorView;                                       // default is nil
+
 /// A specific view for extensions. This property is only used if #define SV_APP_EXTENSIONS is set.
 /// @discussion Default: nil.
 @property (strong, nonatomic, nonnull) UIView *viewForExtension UI_APPEARANCE_SELECTOR;
@@ -311,6 +317,11 @@ typedef void (^SVProgressHUDDismissCompletion)(void);
 /// @param motionEffectEnabled A boolean that determines if motion effects are enabled.
 + (void)setMotionEffectEnabled:(BOOL)motionEffectEnabled;
 
++ (void)setCustomIndefinitedAnimationView:(nullable UIView *)view;          // default is nil
++ (void)setCustomProgressAnimationView:(nullable UIView*)view;			    // default is nil
++ (void)setCustomInfoView:(nullable UIView*)view;                 			// default is nil
++ (void)setCustomSuccessView:(nullable UIView*)view;                 		// default is nil
++ (void)setCustomErrorView:(nullable UIView*)view;                 			// default is nil
 
 #pragma mark - Show Methods
 
@@ -352,6 +363,9 @@ typedef void (^SVProgressHUDDismissCompletion)(void);
 /// @param image The custom image to be displayed.
 /// @param status The message to accompany the custom image.
 + (void)showImage:(nonnull UIImage*)image status:(nullable NSString*)status;
+
+// shows a view + status.
++ (void)showCustomView:(nonnull UIView*)view status:(nullable NSString*)status;
 
 /// Sets the offset from the center for the HUD.
 /// @param offset The UIOffset value indicating how much the HUD should be offset from its center position.
